@@ -1,0 +1,79 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title">Registro de Usuario</ion-title>
+    <p class="subtitle">Ingresa tu informacion para registrarte</p>
+  </div>
+
+  <!-- FORMULARIO DE REGISTRO -->
+  <form [formGroup]="regForm" novalidate>
+    <div class="ion-padding">
+
+      <!-- INPUT NOMBRE -->
+      <ion-item class="input">
+        <ion-input formControlName="fullname" type="text" placeholder="Usuario"></ion-input>
+        <ion-icon slot="end" name="person"></ion-icon>
+      </ion-item>
+      <!-- VALIDACIONES NOMBRE -->
+      <div *ngIf="regForm.controls['fullname'].touched && regForm.controls['fullname'].hasError('required')">
+        <ion-text>
+          <p class="texto-error">*Campo requerido.</p>
+        </ion-text>
+      </div>
+      <div *ngIf="regForm.controls['fullname'].touched && regForm.controls['fullname'].hasError('pattern')">
+        <ion-text>
+          <p class="texto-error">Debe contener entre 5 y 20 caracteres.</p>
+          <p class="texto-error">No se admiten simbolos o caracteres especiales.</p>
+        </ion-text>
+      </div>
+
+      <!-- INPUT CORREO -->
+      <ion-item class="input">
+        <ion-input formControlName="email" type="text" placeholder="Correo"></ion-input>
+        <ion-icon slot="end" name="mail"></ion-icon>
+      </ion-item>
+      <!-- VALIDACIONES CORREO -->
+      <div *ngIf="regForm.controls['email'].touched && regForm.controls['email'].hasError('required')">
+        <ion-text>
+          <p class="texto-error">*Campo requerido.</p>
+        </ion-text>
+      </div>
+      <div *ngIf="regForm.controls['email'].touched && regForm.controls['email'].hasError('pattern')">
+        <ion-text>
+          <p class="texto-error">Formato de correo inválido.</p>
+        </ion-text>
+      </div>
+
+      <!-- INPUT PASSWORD -->
+      <ion-item class="input">
+        <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+        <ion-icon slot="end" name="lock-closed"></ion-icon>
+      </ion-item>
+      <!-- VALIDACIONES PASSWORD -->
+      <div *ngIf="regForm.controls['password'].touched && regForm.controls['password'].hasError('required')">
+        <ion-text>
+          <p class="texto-error">*Campo requerido.</p>
+        </ion-text>
+      </div>
+      <div *ngIf="regForm.controls['password'].touched && regForm.controls['password'].hasError('pattern')">
+        <ion-text>
+          <p class="texto-error">Debe contener como minimo 8 caracteres.</p>
+          <p class="texto-error">Debe contener como minimo una letra mayuscula y minuscula.</p>
+          <p class="texto-error">Debe contener como minimo un numero.</p>
+          <p class="texto-error">Debe tener como minimo 8 caracteres.</p>
+        </ion-text>
+      </div>
+      <div>
+
+        <ion-button (click)="signUp()" expand="block" fill="solid" class="btnRegistrarse" [disabled]="!regForm.valid">
+          Registrarse
+        </ion-button>
+
+      </div>
+    </div>
+  </form>
+
+  <!-- SECCION LINKS -->
+  <div class="loginlink">
+    <p>¿Ya tienes cuenta? Ingresa <a [routerLink]="['/login']" style="color: #ffc33f;"> Aqui</a></p>
+  </div>
+</ion-content>

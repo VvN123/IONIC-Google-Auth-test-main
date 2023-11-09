@@ -1,0 +1,7 @@
+{
+  "name": "ionicfbase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

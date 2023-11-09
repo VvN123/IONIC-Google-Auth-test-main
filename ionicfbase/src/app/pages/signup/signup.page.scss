@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+ion-item{
+    --background:#f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.input{
+    font-size: 300;
+}
+
+.header{
+    margin-top: 20vw;
+    margin-bottom: 20vw;
+    text-align: center;
+
+    .title{
+        font-family: 'Inter', sans-serif;
+        font-size: 2rem;
+    }
+
+    .subtitle{
+        color: rgb(13, 13, 13);
+        font-size: 0.9rem;
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+@media (max-width: 330px) {
+    .header .title {
+        font-size: 1.7rem; 
+    }
+    .header .subtitle {
+        font-size: 0.7rem; 
+    }
+}
+
+.loginlink{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    p {
+        font-size: 0.8rem;
+    }
+    a {
+        color: #ffc33f;
+        text-decoration: none;
+    }
+}
+
+.texto-error{
+    font-size: 0.7rem;
+    color: rgb(255, 147, 147);
+    padding-left: 0.5rem;  
+}
+
+.btnRegistrarse{
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}

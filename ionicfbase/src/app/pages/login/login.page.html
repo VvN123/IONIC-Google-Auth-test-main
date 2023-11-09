@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+
+  <div class="header">
+    <ion-title class="title">Ingreso de Usuario</ion-title>
+    <p class="subtitle">Ingresa las credenciales para ingresar a tu cuenta</p>
+  </div>
+
+  <!-- FORMULARIO DE LOGIN -->
+  <form [formGroup]="logForm" novalidate>
+    <div class="ion-padding">
+
+      <!-- INPUT CORREO -->
+      <ion-item class="input">
+        <ion-input formControlName="email" type="text" placeholder="Correo"></ion-input>
+        <ion-icon slot="end" name="mail"></ion-icon>
+        <!-- VALIDACIONES CORREO -->
+      </ion-item>
+      <div *ngIf="logForm.controls['email'].touched && logForm.controls['email'].hasError('required')">
+        <ion-text>
+          <p class="texto-error">*Campo requerido.</p>
+        </ion-text>
+      </div>
+      <div *ngIf="logForm.controls['email'].touched && logForm.controls['email'].hasError('pattern')">
+        <ion-text>
+          <p class="texto-error">Formato de correo inválido.</p>
+        </ion-text>
+      </div>
+
+      <!-- INPUT PASSWORD -->
+      <ion-item class="input">
+        <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+        <ion-icon slot="end" name="lock-closed"></ion-icon>
+      </ion-item>
+      <!-- VALIDACIONES PASSWORD -->
+      <div *ngIf="logForm.controls['password'].touched && logForm.controls['password'].hasError('required')">
+        <ion-text>
+          <p class="texto-error">*Campo requerido.</p>
+        </ion-text>
+      </div>
+      <ion-button (click)="logIn()" expand="block" fill="solid" class="btnRegistrarse" [disabled]="!logForm.valid">
+        Ingresar
+      </ion-button>
+    </div>
+
+    <!-- SECCION LINKS -->
+    <div class="container">
+      <div class="resetlink">
+        <p>Recupera tu contraseña <a [routerLink]="['/reset-password']">Aqui</a></p>
+      </div>
+      <div class="signuplink">
+        <p>Registrate <a [routerLink]="['/signup']">Aqui</a> </p>
+      </div>
+    </div>
+  </form>
+
+</ion-content>
